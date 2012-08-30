@@ -133,8 +133,10 @@ public class SSHConnector {
 		boolean commandNotExists = command == null
 				|| command.trim().length() == 0;
 		String cmdLine = commandNotExists ? "ping localhost -t" : command;
-		if (commandNotExists)
-			startForwards();
+		startForwards();
+		if (commandNotExists){
+			
+		}
 		else {
 			System.out.println("Starting executing command:" + cmdLine);
 		}
@@ -299,7 +301,7 @@ public class SSHConnector {
 						((Integer) components[2]).intValue(),
 						(String) components[3],
 						((Integer) components[4]).intValue(), filter);
-				System.out.println("started local forward: " + spec);
+				System.out.println(i+" started local forward: " + spec);
 			} catch (IOException e) {
 				System.out.println("failed local forward: " + spec
 						+ e.getMessage());
